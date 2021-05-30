@@ -1,0 +1,25 @@
+
+.mat-column-invoiceId {
+  flex: 0 0 20% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-invoiceDescription {
+  flex: 0 0 40% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-invoiceDate {
+  flex: 0 0 20% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-netTotal {
+  flex: 0 0 20% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}

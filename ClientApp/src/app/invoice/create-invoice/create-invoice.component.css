@@ -1,0 +1,75 @@
+
+.print-Section {
+  display: none;
+  width: 29.7cm;
+  height: 21cm;
+}
+
+.is-loading ::ng-deep .mat-option-text {
+  display: flex;
+  justify-content: center;
+}
+.scroll-grid{
+  height: 28em;
+  overflow-y: auto;
+}
+.spanPadding {
+  padding-left: 15px;
+}
+
+.buttonPadding {
+  margin-left: 2em;
+  margin-right: 2em;
+  border: 2px solid #6f42c1 !important
+}
+.btn{
+  border: 2px solid #6f42c1 !important
+}
+.btn:hover{
+  background-color: #6f42c1 !important
+}
+.btn:hover span{
+  color: white !important
+}
+.btn-center{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.mat-column-productCode {
+  flex: 0 0 20% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-productDescription {
+  flex: 0 0 30% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-price {
+  flex: 0 0 10% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-quantity {
+  flex: 0 0 10% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-totalPrice {
+  flex: 0 0 15% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-action {
+  flex: 0 0 15% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+
