@@ -136,8 +136,8 @@ export class CreateInvoiceComponent implements OnInit {
     this.productForm.patchValue({
       invoiceId: this.invoiceNumber,
       productId: 0,
-      price: 0,
-      quantity: 0
+      price: '',
+      quantity:''
     })
   }
   patchEditForm(product: ProductInvoice) {
@@ -198,8 +198,8 @@ export class CreateInvoiceComponent implements OnInit {
             productId: 0,
             productCode: '',
             productDescription: '',
-            price: 0,
-            quantity: 0
+            price: '',
+            quantity: ''
           })
           this.masterData = [];
         }
