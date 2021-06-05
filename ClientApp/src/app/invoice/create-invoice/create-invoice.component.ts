@@ -160,10 +160,10 @@ export class CreateInvoiceComponent implements OnInit {
   }
   OnSave(saveAndPrint: number) {
     if (saveAndPrint == 0) {
-      //this.SaveInvoive()
+     this.SaveInvoive()
     }
     else {
-      // this.SaveInvoive();
+      this.SaveInvoive();
     }
   }
   SaveInvoive() {

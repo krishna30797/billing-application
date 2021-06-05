@@ -169,7 +169,7 @@
         <td class='text-center'>{{ product.productDescription }}</td>
         <td class='text-center'>{{ product.price }}</td>
         <td class='text-center'>{{ product.quantity }}</td>
-        <td class='text-right'>{{ product.price * product.quantity }}</td>
+        <td class='text-right'>{{ product.price*product.quantity | number : '1.0-2'}}</td>
       </tr>
       <tr class="row-height">
         <td class="thick-line"></td>

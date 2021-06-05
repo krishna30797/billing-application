@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { InvoiceDetailsComponent } from './invoice/invoice-details/invoice-details.component';
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { CommonModule, DatePipe } from '@angular/common';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,9 @@ import { CommonModule, DatePipe } from '@angular/common';
     MatInputModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatDatepickerModule,MatNativeDateModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
 RouterModule.forRoot([
   { path: '', component: InvoiceDetailsComponent, pathMatch: 'full' },
   { path: 'product', component: ProductComponent },
