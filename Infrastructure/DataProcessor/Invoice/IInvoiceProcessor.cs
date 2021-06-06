@@ -12,7 +12,7 @@ namespace BillingApplication.Data
         public bool UpdateInvoice(InvoiceDetails invoiceDetails);
         public bool DeleteInvoice(int id);
         public InvoiceDetails GetInvoiceDetailsById(int id);
-        public List<InvoiceDetails> GetAllInvoiceDetails();
+        public List<InvoiceDetails> GetAllInvoiceDetails(DateTime fromDate, DateTime toDate);
         public int GetNextInvoiceNumber();
     }
 }

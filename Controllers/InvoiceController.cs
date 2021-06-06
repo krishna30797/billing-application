@@ -22,11 +22,11 @@ namespace BillingApplication.Controllers
         }
 
         // GET: Invoice
-        public List<InvoiceDetails> GetAllInvoiceDetails()
+        public List<InvoiceDetails> GetAllInvoiceDetails(DateTime fromDate, DateTime toDate)
         {
             try
             {
-                return _invoiceDataProcessor.GetAllInvoiceDetails();
+                return _invoiceDataProcessor.GetAllInvoiceDetails(fromDate,toDate);
             }
             catch(Exception e)
             {
@@ -80,16 +80,9 @@ namespace BillingApplication.Controllers
                 {
                    return _invoiceDataProcessor.UpdateInvoice(invoice);
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (Exception ex)
                 {
-                    if (!InvoiceExists(invoice.InvoiceId))
-                    {
-                        throw;
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw ex;
                 }
                
             }
@@ -97,7 +90,7 @@ namespace BillingApplication.Controllers
         }
 
         // POST: Invoice/Delete/5
-        [HttpPost, ActionName("DeleteInvoice")]
+        [HttpDelete]
         public bool DeleteInvoice(int id)
         {
             var result = _invoiceDataProcessor.DeleteInvoice(id);

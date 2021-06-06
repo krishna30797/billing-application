@@ -36,4 +36,13 @@ export class CreateInvoiceDataService {
     let result = this.http.post<InvoiceDetails[]>(this.baseUrl + 'invoice/CreateInvoice', invoice).toPromise();
     return result;
   }
+  UpdateInvoice(invoice: InvoiceDetails) {
+    let result = this.http.post<InvoiceDetails[]>(this.baseUrl + 'invoice/EditInvoice', invoice).toPromise();
+    return result;
+  }
+  async GetInvoiceById(invoiceId:number)
+  {
+    let result = this.http.get<InvoiceDetails>(this.baseUrl + `invoice/GetInvoiceById/${invoiceId}`).toPromise();
+    return result;
+  }
 }

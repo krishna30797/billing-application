@@ -6,7 +6,7 @@
   min-block-size: fit-content
 }
 .mat-column-invoiceDescription {
-  flex: 0 0 40% !important;
+  flex: 0 0 30% !important;
   text-align: center;
   display: inline-block;
   min-block-size: fit-content
@@ -19,6 +19,12 @@
 }
 .mat-column-netTotal {
   flex: 0 0 20% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-action {
+  flex: 0 0 10% !important;
   text-align: center;
   display: inline-block;
   min-block-size: fit-content

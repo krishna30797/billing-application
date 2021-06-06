@@ -25,6 +25,7 @@ namespace BillingApplication
             services.AddControllersWithViews();
             services.AddScoped<IInvoiceProcessor, InvoiceDataProcessor>();
             services.AddScoped<IProductDataProcessor, ProductDataProcessor>();
+            services.AddScoped<ISalesProcessor, SalesProcessor>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

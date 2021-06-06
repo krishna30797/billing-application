@@ -2,7 +2,7 @@
 export interface InvoiceDetails {
     invoiceId: number;
     invoiceDescription:string
-    invoiceDate:Date,
+    invoiceDate:string,
     totalPrice: number
     freightCharges: number
     loadingCharges: number
@@ -11,6 +11,7 @@ export interface InvoiceDetails {
 }
 export interface ProductInvoice {
     invoiceId: number;
+    productInvoiceId:number;
     productId: number;
     productCode:string;
     productDescription:string;

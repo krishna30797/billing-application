@@ -2,6 +2,8 @@ import { Component, Inject, NgModule, OnInit } from '@angular/core';
 import { Product } from '../Model/Product';
 import { ProductBusiness } from './product.data.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../common/popup/popup.component';
 
 @Component({
   selector: 'app-product',
@@ -16,6 +18,7 @@ export class ProductComponent implements OnInit {
   searchText;
   displayedColumns: string[] = ['productCode', 'productDescription', 'price', 'action'];
   constructor(private fb: FormBuilder, private productBusiness: ProductBusiness,
+    public dialog:MatDialog
     ) {
 
   }
@@ -54,6 +57,7 @@ export class ProductComponent implements OnInit {
     }
     this.productBusiness.CreateProduct(product).then(r => {
       this.Product = r;
+      this.openDialog("Saved Successfully");
       this.productForm.reset();
       this.productForm.patchValue({
         id:0,
@@ -61,7 +65,7 @@ export class ProductComponent implements OnInit {
       })
     }
     ).catch(e =>
-      alert(JSON.stringify(e))
+      this.openDialog(JSON.stringify(e.error.text))
     );
   }
   EditProduct() {
@@ -73,24 +77,33 @@ export class ProductComponent implements OnInit {
     }
     this.productBusiness.EditProduct(product).then(r => {
       this.Product = r;
+      this.openDialog("Saved Successfully");
       this.productForm.reset();
       this.productForm.patchValue({
         id:0,
         price: 0
       })
+      
     }
     ).catch(e =>
-      alert(JSON.stringify(e))
+      this.openDialog(JSON.stringify(e.error.text))
     );
   }
   DeleteProduct(id) {
     this.productBusiness.DeleteProduct(id).then(r => {
       this.Product = r;
       this.productForm.reset()
+      this.openDialog("Deleted Successfully")
     }
     ).catch(e =>
-      alert(JSON.stringify(e))
+      this.openDialog(JSON.stringify(e))
     );
+  }
+  openDialog(alert): void {
+    const dialogRef = this.dialog.open(PopUpComponent, {
+      width: '30em',
+      data: {name:alert}
+    });
   }
 
 }

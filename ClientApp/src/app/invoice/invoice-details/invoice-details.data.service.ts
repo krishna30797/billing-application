@@ -11,8 +11,13 @@ export class InvoiceDetailsDataService {
 
   }
 
-  GetAllInvoice() {
-    let result = this.http.get<InvoiceDetails[]>(this.baseUrl + 'invoice/GetAllInvoiceDetails').toPromise();
+  GetAllInvoice(fromDate,toDate) {
+    let result = this.http.get<InvoiceDetails[]>(this.baseUrl + `invoice/GetAllInvoiceDetails?fromDate=${fromDate}&toDate=${toDate}`).toPromise();
+    return result;
+  }
+  DeleteInvoice(invoiceId)
+  {
+    let result = this.http.delete<boolean>(this.baseUrl + `invoice/DeleteInvoice/${invoiceId}`).toPromise();
     return result;
   }
 }

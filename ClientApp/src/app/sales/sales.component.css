@@ -1,0 +1,31 @@
+
+  .mat-column-productCode {
+    flex: 0 0 20% !important;
+    text-align: center;
+    display: inline-block;
+    min-block-size: fit-content
+  }
+  .mat-column-productDescription {
+    flex: 0 0 30% !important;
+    text-align: center;
+    display: inline-block;
+    min-block-size: fit-content
+  }
+  .mat-column-price {
+    flex: 0 0 15% !important;
+    text-align: center;
+    display: inline-block;
+    min-block-size: fit-content
+  }
+  .mat-column-quantity {
+    flex: 0 0 15% !important;
+    text-align: center;
+    display: inline-block;
+    min-block-size: fit-content
+  }
+  .mat-column-totalSales {
+    flex: 0 0 20% !important;
+    text-align: center;
+    display: inline-block;
+    min-block-size: fit-content
+  }

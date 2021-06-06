@@ -1,0 +1,65 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <form class="invoice-form col-lg-12" [formGroup]="invoiceFrom">
+      <mat-form-field class="col-lg-4">
+        <input matInput [matDatepicker]="frompicker" formControlName="fromDate" placeholder="Invoice From Date">
+        <mat-datepicker-toggle matSuffix [for]="frompicker"></mat-datepicker-toggle>
+        <mat-datepicker #frompicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="col-lg-4">
+        <input matInput [matDatepicker]="topicker" formControlName="toDate" placeholder="Invoice To Date">
+        <mat-datepicker-toggle matSuffix [for]="topicker"></mat-datepicker-toggle>
+        <mat-datepicker #topicker></mat-datepicker>
+      </mat-form-field>
+      <label class="col-lg-4">
+        <span class="spanPadding">
+          <strong> Net Sales : </strong></span>
+        {{netSales}}
+      </label>
+      </form>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="&#61442; Search for a Product">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="invoice-table mat-elevation-z8 col-lg-12">
+      <mat-table [dataSource]="Sales  | filter:searchText">
+
+        <ng-container matColumnDef="productCode">
+          <mat-header-cell *matHeaderCellDef>Product Code </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.productCode}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="productDescription">
+          <mat-header-cell *matHeaderCellDef> Product Description </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.productDescription}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="totalSales">
+          <mat-header-cell *matHeaderCellDef> Total Sales </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.totalSales}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>

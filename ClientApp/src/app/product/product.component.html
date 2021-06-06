@@ -58,7 +58,7 @@
           <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
             <mat-cell *matCellDef="let element" style="width:20%">
-              <button mat-icon-button color="primary" (click)="patchEditForm(element)" title="Edit Product">
+              <button mat-icon-button color="primary" cursor="pointer" (click)="patchEditForm(element)" title="Edit Product">
                 <mat-icon>edit</mat-icon>
               </button>
               <button mat-icon-button color="primary" (click)="DeleteProduct(element.id)" title="Delete Product">

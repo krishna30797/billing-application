@@ -19,13 +19,17 @@ import { InvoiceDetailsComponent } from './invoice/invoice-details/invoice-detai
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
+import { PopUpComponent } from './common/popup/popup.component';
+import { SalesComponent } from './sales/sales.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     ProductComponent,
     CreateInvoiceComponent,
-    InvoiceDetailsComponent
+    InvoiceDetailsComponent,
+    SalesComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,12 +55,14 @@ RouterModule.forRoot([
   { path: '', component: InvoiceDetailsComponent, pathMatch: 'full' },
   { path: 'product', component: ProductComponent },
   { path: 'create-invoice', component: CreateInvoiceComponent },
-  { path: 'invoice-details', component: InvoiceDetailsComponent }]
+  { path: 'invoice-details', component: InvoiceDetailsComponent },
+  { path: 'sales', component: SalesComponent }]
 )
 
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopUpComponent],
 })
 export class AppModule {
   constructor(private dateAdapter: DateAdapter<Date>) {
