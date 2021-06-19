@@ -35,7 +35,10 @@
   margin-left: 25%;
   margin-right: 25%;
 }
-
+.scroll-grid{
+  height: 28em;
+  overflow-y: auto;
+}
 .mat-column-productCode {
   flex: 0 0 20% !important;
   text-align: center;
