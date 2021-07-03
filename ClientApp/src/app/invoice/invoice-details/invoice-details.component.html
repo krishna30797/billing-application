@@ -17,7 +17,7 @@
           <strong> Net Sales : </strong></span>
         {{netSales}}
       </label>
-      </form>
+    </form>
   </div>
   <br>
   <div class="row">
@@ -28,7 +28,7 @@
   </div>
   <br>
   <div class="row">
-    <div class="invoice-table mat-elevation-z8 col-lg-12 scroll-grid">
+    <div class="invoice-table mat-elevation-z8 col-lg-12 grid scroll">
       <mat-table [dataSource]="invoiceDetails  | filter:searchText">
 
         <ng-container matColumnDef="invoiceId">
@@ -44,7 +44,7 @@
 
         <ng-container matColumnDef="invoiceDate">
           <mat-header-cell *matHeaderCellDef> Invoice Date </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.invoiceDate  | date: 'dd/MM/yyyy'}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.invoiceDate | date: 'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="netTotal">

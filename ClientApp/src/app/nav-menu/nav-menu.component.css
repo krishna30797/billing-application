@@ -26,8 +26,10 @@ font-size: larger;
 .mat-sidenav-container {
   background-color: white !important;
   height: 100vh;
-    display: flex;
-    flex-direction: column;
+}
+.mat-sidenav-container .mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
 }
 .sidenav-toolbar {
   height: 64px;
@@ -47,22 +49,19 @@ font-size: larger;
     flex: 1 1 100%;
 
 }
-.version-info {
-  font-size: 8pt;
-  padding: 8px;
-  align-self: flex-end;
-}
-
 .fixed-topnav {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2;
   width: 100% !important;
+  height: 2.7em;
 }
-.content{
-  padding: 1em;
+.mat-drawer-container,
+.mat-drawer {
+  padding-top: 56px;
 }
+
 .header-content
 {
   width: 100%;

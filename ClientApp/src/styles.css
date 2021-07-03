@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 @font-face {
   font-family: 'Material Icons';
@@ -37,14 +37,9 @@ a {
 code {
   color: #e01a76;
 }
-.btn-center{
-  margin-left: 25%;
-  margin-right: 25%;
-
-}
 body {
   font-family: 'OpenSans' !important;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(117, 11, 11);
 }
 .th-center{
   text-align: center;
@@ -54,4 +49,41 @@ body {
 }
 .th-right{
   text-align: right;
+}
+.content{
+  padding: 2rem 1rem 1rem 2rem;
+}
+
+.grid{
+  height: 28em;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 6px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color:#3f51b5; 
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+.btn{
+  border: 2px solid  #3f51b5 !important
+}
+.btn:hover{
+  background-color:  #3f51b5 !important
+}
+.btn:hover span{
+  color: white !important
 }
