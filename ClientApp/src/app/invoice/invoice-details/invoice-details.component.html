@@ -55,10 +55,10 @@
         <ng-container matColumnDef="action">
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary" (click)="EditInvoice(element.invoiceId)" title="Edit Invoice">
+            <button mat-icon-button color="accent"(click)="EditInvoice(element.invoiceId)" title="Edit Invoice">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="primary" (click)="DeleteInvoice(element.invoiceId)" title="Delete Invoice">
+            <button mat-icon-button color="accent" (click)="DeleteInvoice(element.invoiceId)" title="Delete Invoice">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-cell>

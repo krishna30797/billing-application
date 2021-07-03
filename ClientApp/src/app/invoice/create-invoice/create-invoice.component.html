@@ -37,8 +37,8 @@
         </label>
       </div>
       <div class="col-lg-12">
-        <button mat-button class="btn col-lg-4 buttonPadding" (click)="OnSave(0)"> <span>Save</span></button>
-        <button mat-button class="btn col-lg-4 buttonPadding" (click)="OnSave(1)"
+        <button mat-raised-button class="col-lg-4 buttonPadding"  color="accent" (click)="OnSave(0)"> <span>Save</span></button>
+        <button mat-raised-button class="col-lg-4 buttonPadding" color="accent" (click)="OnSave(1)"
           styleSheetFile="assets/invoice-printdesign.component.css" printSectionId="print-section" ngxPrint> <span>Save
             And Print</span></button>
       </div>
@@ -75,7 +75,7 @@
           <input type="number" matInput placeholder="Quantity" autocomplete="off" formControlName="quantity">
         </mat-form-field>
         <div class="col-lg-12">
-          <button mat-button class="btn btn-center col-lg-6" type="submit" [disabled]="!productForm.valid">
+          <button mat-raised-button class="btn-center col-lg-6" color="accent" type="submit" [disabled]="!productForm.valid">
             <span>Add/Edit Product</span>
           </button>
         </div>
@@ -120,10 +120,10 @@
       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
         <mat-cell *matCellDef="let element" style="width:20%">
-          <button mat-icon-button color="primary" (click)="patchEditForm(element)" title="Edit Product">
+          <button mat-icon-button color="accent" (click)="patchEditForm(element)" title="Edit Product">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary" (click)="DeleteProduct(element.productId)" title="Delete Product">
+          <button mat-icon-button  color="accent" (click)="DeleteProduct(element.productId)" title="Delete Product">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>

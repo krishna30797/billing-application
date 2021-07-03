@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
 import { NgxPrintModule } from 'ngx-print';
-import { DateAdapter, MatAutocompleteModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatProgressSpinnerModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { DateAdapter, MatAutocompleteModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatProgressSpinnerModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
@@ -57,6 +57,7 @@ import { MenuListItemComponent } from './menu-list/menu-list-item.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatCardModule,
     AppRoutingModule
   ],
   providers: [DatePipe,NavService],
