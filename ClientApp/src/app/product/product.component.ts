@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
       id: 0,
       productCode: ['', Validators.required],
       productDescription: ['', Validators.required],
-      price: ''
+      price: 0
     })
     this.GetAllProducts();
 
