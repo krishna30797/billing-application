@@ -5,22 +5,25 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { ProductComponent }from '../app/product/product.component'
-import {MatButtonModule } from '@angular/material/button'
-import {MatButtonToggleModule} from '@angular/material/button-toggle'
+import { ProductComponent } from '../app/product/product.component'
+import { MatButtonModule } from '@angular/material/button'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
-import {NgxPrintModule} from 'ngx-print';
-import { DateAdapter, MatAutocompleteModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule, MatProgressSpinnerModule } from '@angular/material';
+import { NgxPrintModule } from 'ngx-print';
+import { DateAdapter, MatAutocompleteModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatProgressSpinnerModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { InvoiceDetailsComponent } from './invoice/invoice-details/invoice-details.component';
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { CommonModule, DatePipe } from '@angular/common';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { PopUpComponent } from './common/popup/popup.component';
 import { SalesComponent } from './sales/sales.component';
+import { NavService } from './nav-menu/nav-service';
+import { MenuListItemComponent } from './menu-list/menu-list-item.component';
+import { MaterialModule } from './material-module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,8 @@ import { SalesComponent } from './sales/sales.component';
     CreateInvoiceComponent,
     InvoiceDetailsComponent,
     SalesComponent,
-    PopUpComponent
+    PopUpComponent,
+    MenuListItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,30 +41,13 @@ import { SalesComponent } from './sales/sales.component';
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule,
-    MatButtonToggleModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule,
     NgxPrintModule,
-    MatAutocompleteModule,
-    Ng2SearchPipeModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatDialogModule,
-RouterModule.forRoot([
-  { path: '', component: InvoiceDetailsComponent, pathMatch: 'full' },
-  { path: 'product', component: ProductComponent },
-  { path: 'create-invoice', component: CreateInvoiceComponent },
-  { path: 'invoice-details', component: InvoiceDetailsComponent },
-  { path: 'sales', component: SalesComponent }]
-)
-
+    AppRoutingModule,
+    MaterialModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,NavService],
   bootstrap: [AppComponent],
   entryComponents: [PopUpComponent],
 })
@@ -68,4 +55,4 @@ export class AppModule {
   constructor(private dateAdapter: DateAdapter<Date>) {
     dateAdapter.setLocale("en-in"); // DD/MM/YYYY
   }
- }
+}

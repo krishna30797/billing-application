@@ -1,3 +1,4 @@
+import { Units } from "./Product";
 
 export interface InvoiceDetails {
     invoiceId: number;
@@ -16,5 +17,6 @@ export interface ProductInvoice {
     productCode:string;
     productDescription:string;
     price: number;
+    units:Units;
     quantity: number
 }

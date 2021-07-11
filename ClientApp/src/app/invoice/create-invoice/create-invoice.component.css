@@ -9,36 +9,20 @@
   display: flex;
   justify-content: center;
 }
-.scroll-grid{
-  height: 28em;
-  overflow-y: auto;
-}
+
 .spanPadding {
   padding-left: 15px;
-}
-
-.buttonPadding {
-  margin-left: 2em;
-  margin-right: 2em;
-  border: 2px solid #6f42c1 !important
-}
-.btn{
-  border: 2px solid #6f42c1 !important
-}
-.btn:hover{
-  background-color: #6f42c1 !important
-}
-.btn:hover span{
-  color: white !important
+  font-size: 15px;
 }
 .btn-center{
   margin-left: 25%;
   margin-right: 25%;
 }
-.scroll-grid{
-  height: 28em;
-  overflow-y: auto;
+.buttonPadding {
+  margin-left: 2em;
+  margin-right: 2em;
 }
+
 .mat-column-productCode {
   flex: 0 0 20% !important;
   text-align: center;
@@ -63,6 +47,12 @@
   display: inline-block;
   min-block-size: fit-content
 }
+.mat-column-units {
+  flex: 0 0 5% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
 .mat-column-totalPrice {
   flex: 0 0 15% !important;
   text-align: center;
@@ -70,7 +60,7 @@
   min-block-size: fit-content
 }
 .mat-column-action {
-  flex: 0 0 15% !important;
+  flex: 0 0 10% !important;
   text-align: center;
   display: inline-block;
   min-block-size: fit-content

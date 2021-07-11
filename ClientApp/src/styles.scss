@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+@import 'src/my-theme.scss';
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -30,22 +29,11 @@
   direction: ltr;
   -webkit-font-smoothing: antialiased;
 }
-a {
-  color: #0366d6;
-}
 
-code {
-  color: #e01a76;
-}
-.btn-center{
-  margin-left: 25%;
-  margin-right: 25%;
-
-}
 body {
   font-family: 'OpenSans' !important;
-  background-color: rgb(255, 255, 255);
 }
+
 .th-center{
   text-align: center;
 }
@@ -55,3 +43,44 @@ body {
 .th-right{
   text-align: right;
 }
+.content{
+  padding: 2rem 1rem 1rem 2rem;
+}
+
+.grid{
+  height: 28em;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 6px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color:mat-color($my-theme-accent); 
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+.btn{
+white-space: pre-wrap !important;
+}
+.h1, .h2, .h3, .h4, .h5, .h6,.p,.strong,strong,p,h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+}
+/*
+.btn:hover{
+  background-color:  #3f51b5 !important
+}
+.btn:hover span{
+  color: white !important
+}  */

@@ -1,7 +1,4 @@
-.scroll-grid{
-  height: 28em;
-  overflow-y: auto;
-}
+
 .mat-column-invoiceId {
   flex: 0 0 20% !important;
   text-align: center;

@@ -28,7 +28,7 @@
   </div>
   <br>
   <div class="row">
-    <div class="invoice-table mat-elevation-z8 col-lg-12 scroll-grid">
+    <div class="invoice-table mat-elevation-z8 col-lg-12 grid scroll">
       <mat-table [dataSource]="Sales  | filter:searchText">
 
         <ng-container matColumnDef="productCode">
@@ -51,7 +51,10 @@
           <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
         </ng-container>
-
+        <ng-container matColumnDef="units">
+          <mat-header-cell *matHeaderCellDef> Units </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.units}} </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="totalSales">
           <mat-header-cell *matHeaderCellDef> Total Sales </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.totalSales}} </mat-cell>

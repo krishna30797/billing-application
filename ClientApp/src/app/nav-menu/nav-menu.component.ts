@@ -1,18 +1,53 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { NavItem } from './nav-items';
+import { NavService } from './nav-service';
 
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent {
-  isExpanded = false;
+export class NavMenuComponent implements AfterViewInit {
 
-  collapse() {
-    this.isExpanded = false;
+  @ViewChild('appDrawer', { static: false }) appDrawer: ElementRef;
+  navItems: NavItem[] = [
+    {
+      displayName: 'Invoice',
+      iconName: 'receipt',
+      route: '',
+      children: [
+        {
+          displayName: 'Create Invoice',
+          iconName: 'table_chart',
+          route: '/create-invoice',
+        },
+        {
+          displayName: 'Invoice Details',
+          iconName: 'table_chart',
+          route: '/invoice-details',
+        }]    
+    },
+    {
+      displayName: 'Sales',
+        iconName: 'pie_chart',
+        route: '/sales',      
+    },
+  {
+    displayName: 'Product',
+      iconName: 'note',
+      route: '',
+      children: [
+        {
+          displayName: 'Create Product',
+          iconName: 'insert_chart',
+          route: '/product',
+        }]
+  }]
+  constructor(public navService: NavService) {
   }
 
-  toggle() {
-    this.isExpanded = !this.isExpanded;
+  ngAfterViewInit() {
+    this.navService.appDrawer = this.appDrawer;
   }
 }

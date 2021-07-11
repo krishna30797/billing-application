@@ -32,10 +32,13 @@
     width: 700px;
 }
 .ptprice{
-    width: 300px;
+    width: 250px;
 }
 .ptquantity{
-    width: 300px;
+    width: 250px;
+}
+.ptunits{
+    width: 100px;
 }
 .ptamount{
     width: 300px;

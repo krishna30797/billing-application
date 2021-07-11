@@ -31,7 +31,8 @@ namespace BillingApplication.Data
                 {
                     ProductId = product.ProductId,
                     Price = product.Price,
-                    Quantity = product.Quantity
+                    Quantity = product.Quantity,
+                    Units=product.Units
                 });
             }
             _context.Invoice.Add(invoice);
@@ -58,6 +59,7 @@ namespace BillingApplication.Data
                         invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).ProductId = product.ProductId;
                         invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Price = product.Price;
                         invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Quantity = product.Quantity;
+                        invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Units = product.Units;
 
                     }
                     else
@@ -66,7 +68,8 @@ namespace BillingApplication.Data
                         {
                             ProductId = product.ProductId,
                             Price = product.Price,
-                            Quantity = product.Quantity
+                            Quantity = product.Quantity,
+                            Units=product.Units
                         });
                     }
 
@@ -123,6 +126,7 @@ namespace BillingApplication.Data
                         ProductDescription = _context.Product.Where(p => p.id == product.ProductId).FirstOrDefault()?.ProductDescription,
                         Price = product.Price,
                         Quantity = product.Quantity,
+                        Units=product.Units,
                         ProductInvoiceId = product.ProductInvoiceId,
                         InvoiceId = invoiceData.InvoiceId
                     });
@@ -155,6 +159,7 @@ namespace BillingApplication.Data
                         ProductDescription = _context.Product.Where(p => p.id == product.ProductId).FirstOrDefault()?.ProductDescription,
                         Price = product.Price,
                         Quantity = product.Quantity,
+                        Units=product.Units,
                         ProductInvoiceId = product.ProductInvoiceId,
                         InvoiceId = invoice.InvoiceId
                     });
