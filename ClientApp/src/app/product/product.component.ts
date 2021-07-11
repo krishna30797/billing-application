@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
       productCode: ['', Validators.required],
       productDescription: ['', Validators.required],
       price: 0,
-      unitsform: Units.KGS
+      units: ['', Validators.required]
     })
     this.GetAllProducts();
 
@@ -77,7 +77,7 @@ export class ProductComponent implements OnInit {
       productCode: this.productForm.value.productCode,
       productDescription: this.productForm.value.productDescription,
       price: this.productForm.value.price,
-      units: this.productForm.value.unitsform
+      units: this.productForm.value.units
     }
     this.productBusiness.CreateProduct(product).then(r => {
       this.Product = r;
@@ -98,7 +98,7 @@ export class ProductComponent implements OnInit {
       productCode: this.productForm.value.productCode,
       productDescription: this.productForm.value.productDescription,
       price: this.productForm.value.price,
-      units: this.productForm.value.unitsform
+      units: this.productForm.value.units
     }
     this.productBusiness.EditProduct(product).then(r => {
       this.Product = r;

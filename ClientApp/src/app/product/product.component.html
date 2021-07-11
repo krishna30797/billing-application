@@ -21,7 +21,7 @@
             </mat-form-field>
             <mat-form-field class="col-lg-12">
               <mat-label>Units</mat-label>
-              <mat-select formControlName="unitsform">
+              <mat-select formControlName="units">
                 <mat-option *ngFor="let unit of UnitsDropDown" [value]="unit.value" >
                   {{unit.viewValue}}
                 </mat-option>
