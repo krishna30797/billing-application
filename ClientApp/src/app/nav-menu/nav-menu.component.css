@@ -45,7 +45,7 @@ font-size: larger;
 }
 
 
-.menu-list-item.mat-list-item  .mat-list-item-content{
+.menu-list-item .mat-list-item-content{
     flex: 1 1 100%;
 
 }
@@ -66,4 +66,9 @@ font-size: larger;
 {
   width: 100%;
     text-align: center;
+}
+.header-content-font
+{
+font-weight: 600;
+font-family: inherit;
 }

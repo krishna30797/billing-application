@@ -23,6 +23,7 @@ import { PopUpComponent } from './common/popup/popup.component';
 import { SalesComponent } from './sales/sales.component';
 import { NavService } from './nav-menu/nav-service';
 import { MenuListItemComponent } from './menu-list/menu-list-item.component';
+import { MaterialModule } from './material-module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,25 +41,11 @@ import { MenuListItemComponent } from './menu-list/menu-list-item.component';
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule,
-    MatButtonToggleModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule,
     NgxPrintModule,
-    MatAutocompleteModule,
-    Ng2SearchPipeModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatDialogModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatCardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [DatePipe,NavService],
   bootstrap: [AppComponent],

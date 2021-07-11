@@ -19,7 +19,7 @@ export class SalesComponent implements OnInit {
     toDate = new Date();
     netSales: number = 0;
     searchText
-    displayedColumns: string[] = ['productCode', 'productDescription', 'price', 'quantity', 'totalSales'];
+    displayedColumns: string[] = ['productCode', 'productDescription', 'price', 'quantity','units', 'totalSales'];
 
     constructor(private SalesDataService: SalesDataService,
         private fb: FormBuilder, private datePipe: DatePipe,private router:Router,private route: ActivatedRoute) {

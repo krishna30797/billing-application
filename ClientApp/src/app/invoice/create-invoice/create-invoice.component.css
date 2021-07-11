@@ -12,8 +12,8 @@
 
 .spanPadding {
   padding-left: 15px;
+  font-size: 15px;
 }
-
 .btn-center{
   margin-left: 25%;
   margin-right: 25%;
@@ -47,6 +47,12 @@
   display: inline-block;
   min-block-size: fit-content
 }
+.mat-column-units {
+  flex: 0 0 5% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
 .mat-column-totalPrice {
   flex: 0 0 15% !important;
   text-align: center;
@@ -54,7 +60,7 @@
   min-block-size: fit-content
 }
 .mat-column-action {
-  flex: 0 0 15% !important;
+  flex: 0 0 10% !important;
   text-align: center;
   display: inline-block;
   min-block-size: fit-content

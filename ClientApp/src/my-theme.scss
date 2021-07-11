@@ -9,6 +9,13 @@ $my-theme-accent:  mat-palette($mat-teal, 700);
 
 $my-theme-warn:    mat-palette($mat-red);
 
-$my-theme-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+$my-typography: mat-typography-config(
+    // Specify "Comic Sans" as the default font family for all levels.
+    $font-family: 'OpenSans',
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(16px, 24px, 500)
+  );
 
+$my-theme-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+@include mat-core($my-typography);
 @include angular-material-theme($my-theme-theme);

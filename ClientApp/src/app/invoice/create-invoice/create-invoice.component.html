@@ -1,46 +1,59 @@
 <div class="container">
-  <h4>
-    Invoice No : {{invoiceNumber}}
-  </h4>
+  <div class="row">
+    <div class="col-3">
+      <h4 class="col-lg-12">
+       <strong> Invoice No : {{invoiceNumber}} </strong>
+      </h4>
+    </div>
+    <div class="col-3">
+      <p class="col-lg-12">
+        <strong class="spanPadding">Total Price : 
+        {{totalPrice}}
+      </strong>
+    </p>
+    </div>
+    <div class="col-3">
+      <p class="col-lg-12">
+        <strong class="spanPadding">
+          Net Price :
+        {{NetTotal}}
+      </strong>
+    </p>
+    </div>
+  </div>
   <br>
   <div class="row">
     <div class="col-6">
       <form class="invoice-form" [formGroup]="invoiceDetailsFrom">
         <mat-form-field class="col-lg-12">
           <textarea matInput type="text" placeholder=" Invoice Description" autocomplete="off"
-            formControlName="invoiceDescription"></textarea>
+            formControlName="invoiceDescription"> </textarea>
         </mat-form-field>
-        <mat-form-field class="col-lg-12">
+        <mat-form-field class="col-lg-4">
           <input matInput [matDatepicker]="picker" formControlName="invoiceDate" placeholder="Invoice date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-
-        <mat-form-field class="col-lg-12">
+        <mat-form-field class="col-lg-4">
           <input matInput placeholder="Freight Charges" type="number" autocomplete="off"
             formControlName="freightCharges">
         </mat-form-field>
-        <mat-form-field class="col-lg-12">
+        <mat-form-field class="col-lg-4">
           <input matInput placeholder="Loading Charges" type="number" autocomplete="off"
             formControlName="loadingCharges">
         </mat-form-field>
       </form>
+
+      <br>
       <div class="row">
-        <label class="col-lg-6">
-          <span class="spanPadding">Total Price : </span>
-          {{totalPrice}}
-        </label>
-        <label class="col-lg-6">
-          <span class="spanPadding">
-            Net Price :</span>
-          {{NetTotal}}
-        </label>
-      </div>
-      <div class="col-lg-12">
-        <button mat-raised-button class="col-lg-4 buttonPadding"  color="accent" (click)="OnSave(0)"> <span>Save</span></button>
-        <button mat-raised-button class="col-lg-4 buttonPadding" color="accent" (click)="OnSave(1)"
-          styleSheetFile="assets/invoice-printdesign.component.css" printSectionId="print-section" ngxPrint> <span>Save
-            And Print</span></button>
+        <div class="col-12">
+          <button mat-raised-button class="col-lg-4 buttonPadding" color="accent" (click)="OnSave(0)">
+            <span>Save</span></button>
+          <button mat-raised-button class="col-lg-4 buttonPadding" color="accent" (click)="OnSave(1)"
+            styleSheetFile="assets/invoice-printdesign.component.css" printSectionId="print-section" ngxPrint>
+            <span>Save
+              And Print</span></button>
+        </div>
       </div>
     </div>
 
@@ -68,17 +81,20 @@
           <input type="text" matInput placeholder="Product Description" autocomplete="off"
             formControlName="productDescription">
         </mat-form-field>
-        <mat-form-field class="col-lg-12">
+        <mat-form-field class="col-lg-6">
           <input type="number" matInput placeholder="Price" autocomplete="off" formControlName="price">
         </mat-form-field>
-        <mat-form-field class="col-lg-12">
+        <mat-form-field class="col-lg-6">
           <input type="number" matInput placeholder="Quantity" autocomplete="off" formControlName="quantity">
         </mat-form-field>
-        <div class="col-lg-12">
-          <button mat-raised-button class="btn-center col-lg-6" color="accent" type="submit" [disabled]="!productForm.valid">
+        <div class="row justify-content-center">
+        <div class="col-6">
+          <button mat-raised-button class="btn col-lg-12" color="accent" type="submit"
+            [disabled]="!productForm.valid">
             <span>Add/Edit Product</span>
           </button>
         </div>
+      </div>
       </form>
     </div>
   </div>
@@ -86,54 +102,57 @@
 <br>
 <br>
 <div class="container">
-<div class="row">
-  <div class="col-lg-1"></div>
-  <div class="col-lg-10 grid scroll">
-    <mat-table [dataSource]="masterData" class="mat-elevation-z8">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10 grid scroll">
+      <mat-table [dataSource]="masterData" class="mat-elevation-z8">
 
-      <ng-container matColumnDef="productCode">
-        <mat-header-cell *matHeaderCellDef>Product Code </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.productCode}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="productCode">
+          <mat-header-cell *matHeaderCellDef>Product Code </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.productCode}} </mat-cell>
+        </ng-container>
 
 
-      <ng-container matColumnDef="productDescription">
-        <mat-header-cell *matHeaderCellDef> Product Description </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.productDescription}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="productDescription">
+          <mat-header-cell *matHeaderCellDef> Product Description </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.productDescription}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="price">
-        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="quantity">
-        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="totalPrice">
-        <mat-header-cell *matHeaderCellDef> Total Amount </mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.price*element.quantity | number : '1.0-2'}}</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="width:20%">
-          <button mat-icon-button color="accent" (click)="patchEditForm(element)" title="Edit Product">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button  color="accent" (click)="DeleteProduct(element.productId)" title="Delete Product">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+        <ng-container matColumnDef="totalPrice">
+          <mat-header-cell *matHeaderCellDef> Total Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.price*element.quantity | number : '1.0-2'}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="units">
+          <mat-header-cell *matHeaderCellDef> Units </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{Units[element.units]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element" style="width:20%">
+            <button mat-icon-button color="accent" (click)="patchEditForm(element)" title="Edit Product">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="DeleteProduct(element.productId)" title="Delete Product">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <div class="col-lg-1"></div>
   </div>
-  <div class="col-lg-1"></div>
-</div>
 </div>
 
 <div class="print-Section" id="print-section">
@@ -159,6 +178,7 @@
         <th class='ptdesc text-center'>Product Description</th>
         <th class='ptprice text-center'>Price</th>
         <th class='ptquantity text-center'>Quantity</th>
+        <th class='ptunits text-center'>Units</th>
         <th class='ptamount text-right'>Amount</th>
       </tr>
     </thead>
@@ -168,9 +188,11 @@
         <td class='text-center'>{{ product.productDescription }}</td>
         <td class='text-center'>{{ product.price }}</td>
         <td class='text-center'>{{ product.quantity }}</td>
+        <td class='text-center'>{{ Units[product.units]}}</td>
         <td class='text-right'>{{ product.price*product.quantity | number : '1.0-2'}}</td>
       </tr>
       <tr class="row-height">
+        <td class="thick-line"></td>
         <td class="thick-line"></td>
         <td class="thick-line"></td>
         <td class="thick-line"></td>
@@ -182,6 +204,7 @@
         <td class="thick-line"></td>
         <td class="thick-line"></td>
         <td class="thick-line"></td>
+        <td class="thick-line"></td>
         <td class="thick-line text-center"><strong>Freight Charges</strong></td>
         <td class="thick-line text-right">{{FreightCharges}}</td>
       </tr>
@@ -189,10 +212,12 @@
         <td class="no-line"></td>
         <td class="no-line"></td>
         <td class="no-line"></td>
+        <td class="no-line"></td>
         <td class="no-line text-center"><strong>Loading Charges:</strong></td>
         <td class="no-line text-right">{{LoadingCharges}}</td>
       </tr>
       <tr class="row-height">
+        <td class="no-line"></td>
         <td class="no-line"></td>
         <td class="no-line"></td>
         <td class="no-line"></td>

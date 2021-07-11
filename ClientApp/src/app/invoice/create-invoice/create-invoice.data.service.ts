@@ -1,6 +1,6 @@
 import { Component, Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Product,ProductSearch } from 'src/app/Model/Product';
+import { Product,ProductSearch, Units } from 'src/app/Model/Product';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { InvoiceDetails, ProductInvoice } from 'src/app/Model/Invoice';
@@ -22,9 +22,9 @@ export class CreateInvoiceDataService {
   GetProductSearch(searchText: string):Observable<ProductSearch[]> {
     let result = this.http.get<Product[]>(this.baseUrl + 'product/GetProductBySearch?searchParam=' + searchText)
     return result.pipe(
-      map(product=> product.map(({id,productCode,productDescription})=> ({
+      map(product=> product.map(({id,productCode,productDescription,units})=> ({
         id: id,
-        name: productCode + ' - ' + productDescription
+        name: productCode + ' - ' + productDescription + ' - ' + Units[units]
       }))
     ));
   }

@@ -15,5 +15,6 @@ namespace BillingApplication.APIModel
         public string ProductDescription { get; set; }
         public decimal Price  { get; set; }
         public decimal Quantity { get; set; }
+        public Units Units { get; set; }
     }
 }

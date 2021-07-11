@@ -2,7 +2,7 @@ import { Component, Inject, Injectable, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { debounceTime, finalize, switchMap, take, takeUntil, tap } from 'rxjs/operators';
-import { Product, ProductSearch } from 'src/app/Model/Product';
+import { Product, ProductSearch, Units } from 'src/app/Model/Product';
 import { InvoiceDetails, ProductInvoice } from 'src/app/Model/Invoice';
 import { CreateInvoiceDataService } from './create-invoice.data.service';
 import { DatePipe } from '@angular/common'
@@ -17,7 +17,7 @@ import { PopUpComponent } from 'src/app/common/popup/popup.component';
 })
 
 export class CreateInvoiceComponent implements OnInit {
-  displayedColumns: string[] = ['productCode', 'productDescription', 'price', 'quantity', 'totalPrice', 'action'];
+  displayedColumns: string[] = ['productCode', 'productDescription', 'price', 'quantity', 'units','totalPrice', 'action'];
   invoiceDetails: InvoiceDetails;
   invoiceNumber: number;
   invoiceStartDate = new Date();
@@ -39,6 +39,7 @@ export class CreateInvoiceComponent implements OnInit {
   keyword = "name"
   productSelected = new FormControl();
   isEditInvoice: boolean = false;
+  Units:typeof Units=Units;
   constructor(private fb: FormBuilder, private datePipe: DatePipe,
     private CreateInvoiceDataService: CreateInvoiceDataService
     , private router: Router, private route: ActivatedRoute,
@@ -65,7 +66,8 @@ export class CreateInvoiceComponent implements OnInit {
       productCode: ['', Validators.required],
       productDescription: ['', Validators.required],
       price: '',
-      quantity: ''
+      quantity: '',
+      units:''
     })
     this.data.subscribe(val => {
       this.totalPrice = +val.reduce(function (accumulator, item) {
@@ -144,7 +146,8 @@ export class CreateInvoiceComponent implements OnInit {
       productCode: this.ProductData[productIndex].productCode,
       productDescription: this.ProductData[productIndex].productDescription,
       price: this.ProductData[productIndex].price,
-      quantity: 0
+      quantity: 0,
+      units:this.ProductData[productIndex].units
     })
   }
 
@@ -156,6 +159,7 @@ export class CreateInvoiceComponent implements OnInit {
       productCode: this.productForm.value.productCode,
       productDescription: this.productForm.value.productDescription,
       price: this.productForm.value.price,
+      units:this.productForm.value.units,
       quantity: this.productForm.value.quantity,
     }
     let tempProduct = [...this.masterData];
@@ -168,7 +172,8 @@ export class CreateInvoiceComponent implements OnInit {
       productId: 0,
       productInvoiceId:0,
       price: '',
-      quantity: ''
+      quantity: '',
+      units:''
     })
   }
   patchEditForm(product: ProductInvoice) {
@@ -256,7 +261,8 @@ export class CreateInvoiceComponent implements OnInit {
       productCode: '',
       productDescription: '',
       price: '',
-      quantity: ''
+      quantity: '',
+      units:''
     })
     this.masterData = [];
    this.totalPrice=0;

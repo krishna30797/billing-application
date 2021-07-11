@@ -44,7 +44,7 @@ export class NavMenuComponent implements AfterViewInit {
           route: '/product',
         }]
   }]
-  constructor(private navService: NavService) {
+  constructor(public navService: NavService) {
   }
 
   ngAfterViewInit() {

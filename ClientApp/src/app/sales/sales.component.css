@@ -12,19 +12,25 @@
     min-block-size: fit-content
   }
   .mat-column-price {
-    flex: 0 0 15% !important;
+    flex: 0 0 12.5% !important;
     text-align: center;
     display: inline-block;
     min-block-size: fit-content
   }
   .mat-column-quantity {
-    flex: 0 0 15% !important;
+    flex: 0 0 12.5% !important;
+    text-align: center;
+    display: inline-block;
+    min-block-size: fit-content
+  }
+  .mat-column-units {
+    flex: 0 0 10% !important;
     text-align: center;
     display: inline-block;
     min-block-size: fit-content
   }
   .mat-column-totalSales {
-    flex: 0 0 20% !important;
+    flex: 0 0 15% !important;
     text-align: center;
     display: inline-block;
     min-block-size: fit-content
