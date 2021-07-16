@@ -19,7 +19,7 @@ export class NavMenuComponent implements AfterViewInit {
       children: [
         {
           displayName: 'Create Invoice',
-          iconName: 'table_chart',
+          iconName: 'create',
           route: '/create-invoice',
         },
         {
@@ -35,12 +35,12 @@ export class NavMenuComponent implements AfterViewInit {
     },
   {
     displayName: 'Product',
-      iconName: 'note',
+      iconName: 'store',
       route: '',
       children: [
         {
           displayName: 'Create Product',
-          iconName: 'insert_chart',
+          iconName: 'create',
           route: '/product',
         }]
   }]
