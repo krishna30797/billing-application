@@ -15,7 +15,6 @@
           "options": {
             "aot": true,
             "progress": false,
-            "extractCss": true,
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -26,7 +25,8 @@
             ],
             "styles": [
               {
-                "input": "src/my-theme.scss"
+                "input": "src/my-theme.scss",
+                "inject": true
               },
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -50,7 +50,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -85,7 +84,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "src/my-theme.scss"
+                "input": "src/my-theme.scss",
+                "inject": true
               },
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
