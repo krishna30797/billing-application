@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
 
 /* Provide sufficient contrast against white background */
 @import 'src/my-theme.scss';
@@ -61,7 +62,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 30px;
-  background-color:mat-color($my-theme-accent); 
+  background-color:mat.get-color-from-palette($my-theme-accent); 
 }
 
 ::-webkit-scrollbar-button,
