@@ -10,7 +10,7 @@ import { NavService } from './nav-service';
 })
 export class NavMenuComponent implements AfterViewInit {
 
-  @ViewChild('appDrawer', { static: false }) appDrawer: ElementRef;
+  @ViewChild('appDrawer') appDrawer: ElementRef;
   navItems: NavItem[] = [
     {
       displayName: 'Invoice',
