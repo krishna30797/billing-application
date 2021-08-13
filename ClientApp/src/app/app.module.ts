@@ -10,7 +10,17 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
 import { NgxPrintModule } from 'ngx-print';
-import { DateAdapter, MatAutocompleteModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatProgressSpinnerModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
