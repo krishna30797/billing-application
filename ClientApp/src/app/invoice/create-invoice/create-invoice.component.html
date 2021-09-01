@@ -81,12 +81,28 @@
           <input type="text" matInput placeholder="Product Description" autocomplete="off"
             formControlName="productDescription">
         </mat-form-field>
+        <ng-container
+        *ngIf="isProductKgs; then ProductKgs; else ProductPcs">
+      </ng-container>
+      <ng-template #ProductKgs>
+        <mat-form-field class="col-lg-4">
+          <input type="number" matInput placeholder="Price" autocomplete="off" formControlName="price">
+        </mat-form-field>
+        <mat-form-field class="col-lg-4">
+          <input type="number" matInput placeholder="Quantity in Kgs" autocomplete="off" formControlName="quantity">
+        </mat-form-field>
+        <mat-form-field class="col-lg-4">
+          <input type="number" matInput placeholder="Nos" autocomplete="off" formControlName="nos">
+        </mat-form-field>
+      </ng-template>
+      <ng-template #ProductPcs>
         <mat-form-field class="col-lg-6">
           <input type="number" matInput placeholder="Price" autocomplete="off" formControlName="price">
         </mat-form-field>
         <mat-form-field class="col-lg-6">
-          <input type="number" matInput placeholder="Quantity" autocomplete="off" formControlName="quantity">
+          <input type="number" matInput placeholder="Quantity in PCS" autocomplete="off" formControlName="quantity">
         </mat-form-field>
+      </ng-template>
         <div class="row justify-content-center">
         <div class="col-6">
           <button mat-raised-button class="btn col-lg-12" color="accent" type="submit"
@@ -118,6 +134,10 @@
           <mat-cell *matCellDef="let element"> {{element.productDescription}} </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="nos">
+          <mat-header-cell *matHeaderCellDef> Nos </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.nos}} </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="price">
           <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
@@ -176,6 +196,7 @@
       <tr>
         <th class='ptcode text-center'>Product Code</th>
         <th class='ptdesc text-center'>Product Description</th>
+        <th class='ptprice text-center'>Nos</th>
         <th class='ptprice text-center'>Price</th>
         <th class='ptquantity text-center'>Quantity</th>
         <th class='ptunits text-center'>Units</th>
@@ -186,6 +207,7 @@
       <tr *ngFor="let product of masterData" class="row-height">
         <td class='text-center'>{{ product.productCode }}</td>
         <td class='text-center'>{{ product.productDescription }}</td>
+        <td class='text-center'>{{ product.nos }}</td>
         <td class='text-center'>{{ product.price }}</td>
         <td class='text-center'>{{ product.quantity }}</td>
         <td class='text-center'>{{ Units[product.units]}}</td>
@@ -195,8 +217,7 @@
         <td class="thick-line"></td>
         <td class="thick-line"></td>
         <td class="thick-line"></td>
-        <td class="thick-line"></td>
-        <td class="thick-line text-center"><strong>Total Amount:</strong></td>
+        <td colspan="3" class="thick-line text-right"><strong>Total Amount:</strong></td>
         <td class="thick-line text-right">{{totalPrice}}</td>
       </tr>
       <tr>
@@ -204,24 +225,21 @@
         <td class="thick-line"></td>
         <td class="thick-line"></td>
         <td class="thick-line"></td>
-        <td class="thick-line"></td>
-        <td class="thick-line text-center"><strong>Freight Charges</strong></td>
+        <td colspan="3" class="thick-line text-right"><strong>Freight Charges</strong></td>
         <td class="thick-line text-right">{{FreightCharges}}</td>
       </tr>
       <tr class="row-height">
         <td class="no-line"></td>
         <td class="no-line"></td>
         <td class="no-line"></td>
-        <td class="no-line"></td>
-        <td class="no-line text-center"><strong>Loading Charges:</strong></td>
+        <td colspan="3" class="no-line text-right"><strong>Loading Charges:</strong></td>
         <td class="no-line text-right">{{LoadingCharges}}</td>
       </tr>
       <tr class="row-height">
         <td class="no-line"></td>
         <td class="no-line"></td>
         <td class="no-line"></td>
-        <td class="no-line"></td>
-        <td class="no-line text-center"><strong>Net Total:</strong></td>
+        <td colspan="3" class="no-line text-right"><strong>Net Total:</strong></td>
         <td class="no-line text-right" style="border-top: 2px solid">{{this.NetTotal}}</td>
       </tr>
     </tbody>

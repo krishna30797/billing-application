@@ -32,7 +32,9 @@ namespace BillingApplication.Data
                     ProductId = product.ProductId,
                     Price = product.Price,
                     Quantity = product.Quantity,
-                    Units=product.Units
+                    Units=product.Units,
+                    Nos=product.Units == Units.KGS ? product.Nos : product.Quantity
+
                 });
             }
             _context.Invoice.Add(invoice);
@@ -60,7 +62,7 @@ namespace BillingApplication.Data
                         invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Price = product.Price;
                         invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Quantity = product.Quantity;
                         invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Units = product.Units;
-
+                        invoice.ProductInvoice.FirstOrDefault(p => p.ProductInvoiceId == product.ProductInvoiceId).Nos = product.Nos;
                     }
                     else
                     {
@@ -69,7 +71,8 @@ namespace BillingApplication.Data
                             ProductId = product.ProductId,
                             Price = product.Price,
                             Quantity = product.Quantity,
-                            Units=product.Units
+                            Units=product.Units,
+                            Nos = product.Units == Units.KGS ? product.Nos : product.Quantity
                         });
                     }
 
@@ -127,6 +130,7 @@ namespace BillingApplication.Data
                         Price = product.Price,
                         Quantity = product.Quantity,
                         Units=product.Units,
+                        Nos = product.Nos,
                         ProductInvoiceId = product.ProductInvoiceId,
                         InvoiceId = invoiceData.InvoiceId
                     });
@@ -160,6 +164,7 @@ namespace BillingApplication.Data
                         Price = product.Price,
                         Quantity = product.Quantity,
                         Units=product.Units,
+                        Nos = product.Nos,
                         ProductInvoiceId = product.ProductInvoiceId,
                         InvoiceId = invoice.InvoiceId
                     });

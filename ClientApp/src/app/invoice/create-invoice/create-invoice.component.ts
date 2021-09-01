@@ -17,7 +17,7 @@ import { PopUpComponent } from 'src/app/common/popup/popup.component';
 })
 
 export class CreateInvoiceComponent implements OnInit {
-  displayedColumns: string[] = ['productCode', 'productDescription', 'price', 'quantity', 'units','totalPrice', 'action'];
+  displayedColumns: string[] = ['productCode', 'productDescription', 'nos','price', 'quantity', 'units','totalPrice', 'action'];
   invoiceDetails: InvoiceDetails;
   invoiceNumber: number;
   invoiceStartDate = new Date();
@@ -40,6 +40,7 @@ export class CreateInvoiceComponent implements OnInit {
   productSelected = new FormControl();
   isEditInvoice: boolean = false;
   Units:typeof Units=Units;
+  isProductKgs:boolean=false;
   constructor(private fb: FormBuilder, private datePipe: DatePipe,
     private CreateInvoiceDataService: CreateInvoiceDataService
     , private router: Router, private route: ActivatedRoute,
@@ -67,7 +68,8 @@ export class CreateInvoiceComponent implements OnInit {
       productDescription: ['', Validators.required],
       price: '',
       quantity: '',
-      units:''
+      units:'',
+      nos:''
     })
     this.data.subscribe(val => {
       this.totalPrice = +val.reduce(function (accumulator, item) {
@@ -137,7 +139,7 @@ export class CreateInvoiceComponent implements OnInit {
   }
   selectEvent(e: ProductSearch) {
     let productIndex = this.ProductData.findIndex(p => p.id == e.id)
-
+    this.isProductKgs = this.ProductData[productIndex].units == Units.KGS
     this.productForm.patchValue({
       productFilter: '',
       invoiceId: this.invoiceNumber,
@@ -147,7 +149,8 @@ export class CreateInvoiceComponent implements OnInit {
       productDescription: this.ProductData[productIndex].productDescription,
       price: this.ProductData[productIndex].price,
       quantity: 0,
-      units:this.ProductData[productIndex].units
+      units:this.ProductData[productIndex].units,
+      nos:this.isProductKgs ? 0 : ''
     })
   }
 
@@ -161,6 +164,7 @@ export class CreateInvoiceComponent implements OnInit {
       price: this.productForm.value.price,
       units:this.productForm.value.units,
       quantity: this.productForm.value.quantity,
+      nos:this.productForm.value.nos,
     }
     let tempProduct = [...this.masterData];
     tempProduct.push(product);
@@ -173,7 +177,8 @@ export class CreateInvoiceComponent implements OnInit {
       productInvoiceId:0,
       price: '',
       quantity: '',
-      units:''
+      units:'',
+      nos:''
     })
   }
   patchEditForm(product: ProductInvoice) {
@@ -182,6 +187,7 @@ export class CreateInvoiceComponent implements OnInit {
     tempProduct.splice(removeIndex, 1)
     this.masterData = [...tempProduct];
     this.addMasterDatatoObservable(this.masterData);
+    this.isProductKgs = product.units == Units.KGS
     this.productForm.patchValue(
       product
     )
@@ -195,6 +201,12 @@ export class CreateInvoiceComponent implements OnInit {
 
   }
   OnSave(saveAndPrint: number) {
+    
+    let  products= this.masterData;
+    products.forEach(p=>
+      {
+        p.nos= p.nos.toString() == "" ? 0 : p.nos;
+      })
     let invoice: InvoiceDetails =
     {
       invoiceId: 0,
@@ -204,7 +216,7 @@ export class CreateInvoiceComponent implements OnInit {
       loadingCharges: (this.LoadingCharges),
       netTotal: (this.NetTotal),
       totalPrice: (this.totalPrice),
-      productInvoice: [...this.masterData]
+      productInvoice: [...products]
     };
     if(this.isEditInvoice)
     this.UpdateInvoice(invoice);
@@ -262,7 +274,8 @@ export class CreateInvoiceComponent implements OnInit {
       productDescription: '',
       price: '',
       quantity: '',
-      units:''
+      units:'',
+      nos:''
     })
     this.masterData = [];
    this.totalPrice=0;

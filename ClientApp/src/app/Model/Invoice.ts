@@ -18,5 +18,6 @@ export interface ProductInvoice {
     productDescription:string;
     price: number;
     units:Units;
-    quantity: number
+    quantity: number;
+    nos:number;
 }

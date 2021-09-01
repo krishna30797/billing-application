@@ -24,13 +24,19 @@
 }
 
 .mat-column-productCode {
-  flex: 0 0 20% !important;
+  flex: 0 0 10% !important;
   text-align: center;
   display: inline-block;
   min-block-size: fit-content
 }
 .mat-column-productDescription {
   flex: 0 0 30% !important;
+  text-align: center;
+  display: inline-block;
+  min-block-size: fit-content
+}
+.mat-column-numbers {
+  flex: 0 0 10% !important;
   text-align: center;
   display: inline-block;
   min-block-size: fit-content
