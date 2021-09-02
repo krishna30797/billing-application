@@ -64,7 +64,7 @@ export class ProductComponent implements OnInit {
     const options: DropDownOption[] = enumArr.map(a => {
       const option: DropDownOption = {
         id: a.id,
-        value:a.value,
+        value:a.id,
         viewValue:a.value
       };
       return option;
